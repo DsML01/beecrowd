@@ -5,7 +5,7 @@ def main():
     
     cedulas100 = int(dinheiro/100)
     
-    print(f"{cedulas100} notas(s) de R$ 100,00")
+    print(f"{cedulas100} nota(s) de R$ 100,00")
 
     if(cedulas100 > 0):
         dinheiro %= 100

@@ -1,5 +1,5 @@
 def printar(anos, meses, dias):
-    print(f"{anos} anos(s)\n{meses} mes(es)\n{dias} dia(as)")
+    print(f"{anos} ano(s)\n{meses} mes(es)\n{dias} dia(s)")
 
 def main():
     idade = int(input())

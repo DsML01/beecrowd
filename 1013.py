@@ -5,7 +5,6 @@ def main():
 
     entrada = input().split()
 
-
     while i >= 0:
         valor = int(entrada[i])
         if valor > maior:
