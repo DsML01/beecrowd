@@ -7,14 +7,19 @@ def main():
     b = float(entrada[1])
     c = float(entrada[2])
 
-    delta = (b**2-4*a*c)
+    delta = (b**2 - 4 * a * c)
 
     if(delta >= 0):
-        r1 = (-b + sqrt(delta))/(2*a)
-        r2 = (-b - sqrt(delta))/(2*a)
+        
+        if(a != 0):
+            r1 = (-b + sqrt(delta)) / (2 * a)
+            r2 = (-b - sqrt(delta)) / (2 * a)
 
-        print(f"R1 = {r1:.5f}")
-        print(f"R2 = {r2:.5f}")
+            print(f"R1 = {r1:.5f}")
+            print(f"R2 = {r2:.5f}")
+        
+        else:
+            print("Impossivel calcular")
 
     else:
         print("Impossivel calcular")

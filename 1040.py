@@ -22,7 +22,7 @@ def main():
     print(f"Media: {media:.1f}")
 
     if(media >= 7.0):
-        print("Alunos aprovado.")
+        print("Aluno aprovado.")
     
     elif(media < 5.0):
         print("Aluno reprovado.")
