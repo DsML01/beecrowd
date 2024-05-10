@@ -1,40 +1,46 @@
 #include <stdio.h>
-#include <math.h>
-
-typedef struct _consumo
-{
-    int habitantes;
-    double consumo;
-    double mean;
-} consumo;
+#include <stdlib.h>
 
 int main()
 {
-    int n, cidade = 1;
+    int n, cidade = 1, maior = 0;
     while(scanf("%d", &n) == 1 && n != 0)
     {
-        //x = numero de habitantes | 1 <= x <= 10;
-        //y = consumo de agua em m^3 | 1 <= x <= 200;
+        if(cidade != 1) puts("");
 
-        consumo *casa = calloc(n, sizeof(consumo));
+        int *consumo_m3 = calloc(201, sizeof(int));
 
-        double mean_habitantes = 0, mean_consumo = 0;
+        int habitantes, consumo,mean_habitantes = 0, mean_consumo = 0, cont = 0;
 
         for(int i = 0; i < n; i++)
         {
-            if(i != 0) puts("");
+            scanf("%d %d", &habitantes, &consumo);
 
-            scanf("%d %lf", casa[i]->habitantes, casa[i]->consumo);
+            int newi = consumo/habitantes;
+            if(consumo_m3[newi] == 0) cont++;
 
-            casa->mean = floor(casa->habitantes/casa->consumo);
+            consumo_m3[newi] += habitantes;
 
-            mean_habitantes += casa->habitantes;
+            mean_habitantes += habitantes;
+
+            mean_consumo += consumo;
         }
+        printf("Cidade# %d:\n", cidade++);
 
-        printf("Cidade# %d:\n", cidade);
-        cidade++;
-
+        for(int i = 0; i <= 200; i++)
+        {
+            if(consumo_m3[i])
+            {
+                printf("%d-%d", consumo_m3[i], i);
+                cont--;
+                if(cont) printf(" ");
+                else break;
+            }
+        } 
+        puts("");
+        double media = (double)mean_consumo / mean_habitantes;
+        printf("Consumo medio: %.2lf m3.\n", floorf(media * 100)/100);
+        free(consumo_m3);
     }
-
     return 0;
 }
